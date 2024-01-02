@@ -3,7 +3,7 @@
 update_sources_list() {
     cd /etc/apt/
     if [ -f "sources.list" ]; then
-        mv sources.list sources.list.old
+        mv sources.list sources.list.bak
     fi
     cat << EOF > sources.list
 deb [check-valid-until=no] http://archive.debian.org/debian/ jessie main contrib non-free
@@ -111,16 +111,22 @@ clone_and_install_chip_battery_status() {
     sudo ./install.sh
     echo "chip-battery-status installed."
     echo "To configure, follow these steps:"
-    echo "1. Right-click on an existing panel item, choose 'Panel > Add New Items...'"
-    echo "2. Select 'Generic Monitor', hit 'Add'."
-    echo "3. Right-click the new '(genmon) xxx' item, choose 'Properties'."
-    echo "4. In 'Command' field, enter 'chip-battery-xfce-genmon', set 'Period (s)' to '5'."
-    echo "To uninstall, run 'sudo ./uninstall.sh' from the 'chip-battery-status' directory."
+    echo "1. Right-click/ctrl-click on an existing panel item"
+    echo "2. Choose 'Panel > Add New Items...'"
+    echo "3. Select 'Generic Monitor', hit 'Add'."
+    echo "4. Right-click the new '(genmon) xxx' item"
+    echo "5. Choose 'Properties'."
+    echo "6. In 'Command' field, enter 'chip-battery-xfce-genmon'"
+    echo "7. Set 'Period (s)' to '5'."
+    echo ""
+    echo "To uninstall, run 'sudo ./uninstall.sh'"
+    echo "from the 'chip-battery-status' directory."
 }
 
 clone_pocketinstaller() {
     git clone https://github.com/IkerGarcia/PocketInstaller.git
     echo "PocketInstaller repository cloned."
+    echo "Feel free to install any of the games"
 }
 
 clone_and_run_chipbuild() {
