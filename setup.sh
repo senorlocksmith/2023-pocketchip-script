@@ -137,6 +137,9 @@ clone_and_run_chipbuild() {
     echo "chipbuild script executed."
 }
 
+# Menu loop
+while true; do
+
 # Display menu options
 echo "Select the operation to perform:"
 echo "1. Setup PocketCHIP for 2024"
@@ -156,9 +159,10 @@ echo "14. Install PocketDesk"
 echo "15. Clone and install CHIP Battery Status"
 echo "16. Clone PocketInstaller repository"
 echo "17. Clone and run chipbuild"
+echo "18. Exit"
 
 # Get user input
-read -p "Enter your choice (1-16): " choice
+read -p "Enter your choice (1-18): " choice
 
 # Execute the selected option
 case $choice in
@@ -192,5 +196,12 @@ case $choice in
     15) clone_and_install_chip_battery_status ;;
     16) clone_pocketinstaller ;;
     17) clone_and_run_chipbuild ;;
-    *) echo "Invalid option selected." ;;
-esac
+    18) break ;;
+        *) echo "Invalid option selected." ;;
+    esac
+
+# Pause
+    read -p "Press any key to return to the main menu..."
+done
+
+echo "Exiting script. Goodbye!"
